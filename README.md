@@ -1,10 +1,6 @@
 # Browser-Based-Snake-Game
 
----
-
 ## Date: 07/02/2022
-
----
 
 ### By: Timothy Mei
 

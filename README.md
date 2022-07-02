@@ -21,3 +21,7 @@ This is a simple browser-based version of the classic arcade game, Snake. The pl
 ### _Trello Board_
 
 [TrelloBoard](https://trello.com/b/aZeqwC9r/snake-game)
+
+### _Sources_
+
+[SnakeImg](https://im.indiatimes.in/media/content/2018/Aug/snake_game_1533210447.jpg)

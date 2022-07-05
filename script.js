@@ -22,3 +22,22 @@ const randomDots = () => {
 }
 
 randomDots()
+
+const arrowPressed = (e) => {
+  switch (e.keyCode) {
+    case 37:
+      console.log('left arrowkey pressed')
+      break
+    case 38:
+      console.log('top arrowkey pressed')
+      break
+    case 39:
+      console.log('right arrowkey pressed')
+      break
+    case 40:
+      console.log('bottom arrowkey pressed')
+      break
+  }
+}
+
+window.addEventListener('keydown', arrowPressed)

@@ -2,7 +2,7 @@ let gameBoard = document.getElementById('container')
 const boardWidth = 20
 const boardHeight = 20
 let snakeBlocks = [183, 184, 185]
-let speed = 1000
+let speed = 600
 let direction = null
 let previousInput = ['gamestart']
 // let gameSession = true
@@ -44,108 +44,150 @@ randomDots()
 const arrowPressed = (e) => {
   switch (e.keyCode) {
     case 37:
-      console.log('left arrowkey pressed')
-      direction = 'left'
-      const leftMovement = () => {
-        if (direction == 'left') {
-          for (i = 0; i < snakeBlocks.length; i++) {
-            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 1)
-            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-            snakeBlocks.shift(snakeBlocks[0])
-            previousInput.push('left')
-            snake()
-            setTimeout(leftMovement, speed)
+      if (direction == 'right') {
+        return false
+      } else {
+        console.log('left arrowkey pressed')
+        direction = 'left'
+        const leftMovement = () => {
+          if (direction == 'left') {
+            for (i = 0; i < snakeBlocks.length; i++) {
+              snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 1)
+              spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+              spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+              snakeBlocks.shift(snakeBlocks[0])
+              previousInput.push('left')
+              snake()
+              setTimeout(leftMovement, speed)
+            }
+          } else {
+            return
           }
-        } else {
-          return
         }
+        if (
+          previousInput[previousInput.length - 1] !== 'left' &&
+          previousInput[previousInput.length - 1] !== 'right' &&
+          previousInput[previousInput.length - 1] !== 'gamestart'
+        ) {
+          leftMovement()
+        }
+        break
       }
-      if (
-        previousInput[previousInput.length - 1] !== 'left' &&
-        previousInput[previousInput.length - 1] !== 'right' &&
-        previousInput[previousInput.length - 1] !== 'gamestart'
-      ) {
-        leftMovement()
-      }
-      break
     case 38:
-      console.log('top arrowkey pressed')
-      direction = 'top'
-      const topMovement = () => {
-        if (direction == 'top') {
-          for (i = 0; i < snakeBlocks.length; i++) {
-            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 20)
-            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-            snakeBlocks.shift(snakeBlocks[0])
-            previousInput.push('top')
-            snake()
-            setTimeout(topMovement, speed)
+      if (direction == 'bottom') {
+        return false
+      } else {
+        console.log('top arrowkey pressed')
+        direction = 'top'
+        const topMovement = () => {
+          if (direction == 'top') {
+            for (i = 0; i < snakeBlocks.length; i++) {
+              snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 20)
+              spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+              spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+              snakeBlocks.shift(snakeBlocks[0])
+              previousInput.push('top')
+              snake()
+              setTimeout(topMovement, speed)
+            }
+          } else {
+            return
           }
-        } else {
-          return
         }
+        if (
+          previousInput[previousInput.length - 1] !== 'top' &&
+          previousInput[previousInput.length - 1] !== 'bottom'
+        ) {
+          topMovement()
+        }
+        break
       }
-      if (
-        previousInput[previousInput.length - 1] !== 'top' &&
-        previousInput[previousInput.length - 1] !== 'bottom'
-      ) {
-        topMovement()
-      }
-      break
     case 39:
-      console.log('right arrowkey pressed')
-      direction = 'right'
-      const rightMovement = () => {
-        if (direction == 'right') {
-          for (i = 0; i < snakeBlocks.length; i++) {
-            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 1)
-            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-            snakeBlocks.shift(snakeBlocks[0])
-            previousInput.push('right')
-            snake()
-            setTimeout(rightMovement, speed)
+      if (direction == 'left') {
+        return false
+      } else {
+        console.log('right arrowkey pressed')
+        direction = 'right'
+        const rightMovement = () => {
+          if (direction == 'right') {
+            for (i = 0; i < snakeBlocks.length; i++) {
+              snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 1)
+              spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+              spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+              snakeBlocks.shift(snakeBlocks[0])
+              previousInput.push('right')
+              snake()
+              setTimeout(rightMovement, speed)
+            }
+          } else {
+            return
           }
-        } else {
-          return
         }
+        if (
+          previousInput[previousInput.length - 1] !== 'right' &&
+          previousInput[previousInput.length - 1] !== 'left'
+        ) {
+          rightMovement()
+        }
+        break
       }
-      if (
-        previousInput[previousInput.length - 1] !== 'right' &&
-        previousInput[previousInput.length - 1] !== 'left'
-      ) {
-        rightMovement()
-      }
-      break
-
     case 40:
-      console.log('bottom arrowkey pressed')
-      direction = 'bottom'
-      const bottomMovement = () => {
-        if (direction == 'bottom') {
-          for (i = 0; i < snakeBlocks.length; i++) {
-            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 20)
-            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-            snakeBlocks.shift(snakeBlocks[0])
-            previousInput.push('bottom')
-            snake()
-            setTimeout(bottomMovement, speed)
+      if (direction == 'top') {
+        return false
+      } else {
+        console.log('bottom arrowkey pressed')
+        direction = 'bottom'
+        const bottomMovement = () => {
+          if (direction == 'bottom') {
+            for (i = 0; i < snakeBlocks.length; i++) {
+              snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 20)
+              spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+              spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+              snakeBlocks.shift(snakeBlocks[0])
+              previousInput.push('bottom')
+              snake()
+              setTimeout(bottomMovement, speed)
+            }
+          } else {
+            return
           }
-        } else {
-          return
+        }
+        if (
+          previousInput[previousInput.length - 1] !== 'bottom' &&
+          previousInput[previousInput.length - 1] !== 'top'
+        ) {
+          //   while (direction == 'bottom'){
+          //   setTimeout(bottomMovement(), speed)
+          // }
+          bottomMovement()
+          break
         }
       }
-      if (
-        previousInput[previousInput.length - 1] !== 'bottom' &&
-        previousInput[previousInput.length - 1] !== 'top'
-      ) {
-        bottomMovement()
-      }
-      break
   }
 }
 
 window.addEventListener('keydown', arrowPressed)
+
+// console.log('bottom arrowkey pressed')
+// direction = 'bottom'
+// const bottomMovement = () => {
+//   if (direction == 'bottom') {
+//     for (i = 0; i < snakeBlocks.length; i++) {
+//       snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 20)
+//       spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+//       spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+//       snakeBlocks.shift(snakeBlocks[0])
+//       previousInput.push('bottom')
+//       snake()
+//       setTimeout(bottomMovement, speed)
+//     }
+//   } else {
+//     return
+//   }
+// }
+// if (
+//   previousInput[previousInput.length - 1] !== 'bottom' &&
+//   previousInput[previousInput.length - 1] !== 'top'
+// ) {
+//   bottomMovement()
+// }

@@ -15,7 +15,7 @@ let spaces = document.getElementsByClassName('spaces')
 const snake = () => {
   for (i = 0; i < snakeBlocks.length; i++) {
     let snakeBody = spaces[snakeBlocks[i]]
-    snakeBody.setAttribute('class', 'snake')
+    snakeBody.setAttribute('id', 'snake')
     snakeBody.style.backgroundColor = '#f46d10'
   }
 }

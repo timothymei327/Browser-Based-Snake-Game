@@ -47,14 +47,18 @@ const arrowPressed = (e) => {
       console.log('left arrowkey pressed')
       direction = 'left'
       const leftMovement = () => {
-        for (i = 0; i < snakeBlocks.length; i++) {
-          snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 1)
-          spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-          spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-          snakeBlocks.shift(snakeBlocks[0])
-          previousInput.push('left')
-          snake()
-          setTimeout(leftMovement, speed)
+        if (direction == 'left') {
+          for (i = 0; i < snakeBlocks.length; i++) {
+            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 1)
+            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+            snakeBlocks.shift(snakeBlocks[0])
+            previousInput.push('left')
+            snake()
+            setTimeout(leftMovement, speed)
+          }
+        } else {
+          return
         }
       }
       if (
@@ -69,14 +73,18 @@ const arrowPressed = (e) => {
       console.log('top arrowkey pressed')
       direction = 'top'
       const topMovement = () => {
-        for (i = 0; i < snakeBlocks.length; i++) {
-          snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 20)
-          spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-          spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-          snakeBlocks.shift(snakeBlocks[0])
-          previousInput.push('top')
-          snake()
-          setTimeout(topMovement, speed)
+        if (direction == 'top') {
+          for (i = 0; i < snakeBlocks.length; i++) {
+            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] - 20)
+            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+            snakeBlocks.shift(snakeBlocks[0])
+            previousInput.push('top')
+            snake()
+            setTimeout(topMovement, speed)
+          }
+        } else {
+          return
         }
       }
       if (
@@ -90,14 +98,18 @@ const arrowPressed = (e) => {
       console.log('right arrowkey pressed')
       direction = 'right'
       const rightMovement = () => {
-        for (i = 0; i < snakeBlocks.length; i++) {
-          snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 1)
-          spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-          spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-          snakeBlocks.shift(snakeBlocks[0])
-          previousInput.push('right')
-          snake()
-          setTimeout(rightMovement, speed)
+        if (direction == 'right') {
+          for (i = 0; i < snakeBlocks.length; i++) {
+            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 1)
+            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+            snakeBlocks.shift(snakeBlocks[0])
+            previousInput.push('right')
+            snake()
+            setTimeout(rightMovement, speed)
+          }
+        } else {
+          return
         }
       }
       if (
@@ -107,18 +119,23 @@ const arrowPressed = (e) => {
         rightMovement()
       }
       break
+
     case 40:
       console.log('bottom arrowkey pressed')
       direction = 'bottom'
       const bottomMovement = () => {
-        for (i = 0; i < snakeBlocks.length; i++) {
-          snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 20)
-          spaces[snakeBlocks[0]].setAttribute('id', 'snake')
-          spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
-          snakeBlocks.shift(snakeBlocks[0])
-          previousInput.push('bottom')
-          snake()
-          setTimeout(bottomMovement, speed)
+        if (direction == 'bottom') {
+          for (i = 0; i < snakeBlocks.length; i++) {
+            snakeBlocks.push(snakeBlocks[snakeBlocks.length - 1] + 20)
+            spaces[snakeBlocks[0]].setAttribute('id', 'snake')
+            spaces[snakeBlocks[0]].style.backgroundColor = '#465947'
+            snakeBlocks.shift(snakeBlocks[0])
+            previousInput.push('bottom')
+            snake()
+            setTimeout(bottomMovement, speed)
+          }
+        } else {
+          return
         }
       }
       if (

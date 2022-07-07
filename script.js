@@ -7,8 +7,9 @@ let dotBlocks = []
 let speed = 500
 let direction = null
 let previousInput = ['gamestart']
-let intervalTime = 400
+let intervalTime = 200
 let dotSpawnTime = 1
+let stopGame = true
 
 for (i = 0; i < 400; i++) {
   let spaces = document.createElement('div')
@@ -32,7 +33,7 @@ const generateDots = () => {
   let randomNum = Math.round(Math.random() * 400)
   let randomDots = spaces[randomNum]
   dotBlocks.push(randomNum)
-  if (randomDots.getAttribute('id') == 'snake') {
+  if (snakeBlocks[snakeBlocks.length - 1] == dotBlocks[0]) {
     generateDots()
   } else {
     randomDots.setAttribute('id', 'dot')
@@ -193,13 +194,15 @@ const collisions = () => {
       direction == 'bottom')
   ) {
     console.log('game over')
-
-    let highestTimeoutId = setTimeout(';')
-    for (let i = 0; i < highestTimeoutId; i++) {
-      clearTimeout(i)
+    if (stopGame) {
+      //clear highest timeout learned from https://stackoverflow.com/questions/3847121/how-can-i-disable-all-settimeout-events
+      let highestTimeoutId = setTimeout(';')
+      for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i)
+      }
+    } else {
+      return
     }
-  } else {
-    return
   }
 }
 
@@ -211,5 +214,19 @@ const dotSpawning = () => {
   }
 }
 
+const hitSelf = () => {
+  for (let i = 0; i < snakeBlocks.length - 1; i++) {
+    if (snakeBlocks[snakeBlocks.length - 1] == snakeBlocks[i]) {
+      let highestTimeoutId = setTimeout(';')
+      for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i)
+      }
+    } else {
+      return
+    }
+  }
+}
+
 let dotSpawnInterval = setInterval(dotSpawning, dotSpawnTime)
+let hitSelfCheck = setInterval(hitSelf, dotSpawnTime)
 let interval = setInterval(collisions, intervalTime)

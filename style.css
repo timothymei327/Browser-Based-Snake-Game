@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,800&display=swap');
+body {
+background-image: url("https://wallpapershome.com/images/pages/pic_h/288.jpg");
+color: #ffe824;
+/* display: grid;
+grid-template-columns: 10% 80% 10%;
+grid-template-rows: 10% 80% 10%; */
+justify-content: center;
+overflow: hidden;
+font-family: 'Fira Sans', sans-serif;
+}
+
 #container {
+  text-align: center;
+  /* grid-row-start: 2;
+  grid-column-start: 2; */
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);
@@ -6,4 +21,30 @@
   width: 600px;
   border: 20px solid #252122;
   background-color: #465947;
+  padding: 0 auto;
+}
+
+div {
+}
+
+span{
+  font-size: 8px;
+}
+
+.titleName {
+  /* text-align: center; */
+  /* grid-row-start: 1;
+  grid-column-start: 2; */
+}
+
+ul{
+/* grid-row-start: 2;
+grid-column-start: 3; */
+}
+
+
+li {
+  /* grid-row-start: 2;
+grid-column-start: 3; */
+  list-style: none;
 }

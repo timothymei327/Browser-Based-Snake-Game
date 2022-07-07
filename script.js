@@ -7,7 +7,7 @@ let dotBlocks = []
 let speed = 500
 let direction = null
 let previousInput = ['gamestart']
-let intervalTime = 200
+let intervalTime = 100
 let dotSpawnTime = 1
 let stopGame = true
 
@@ -31,6 +31,9 @@ snake()
 
 const generateDots = () => {
   let randomNum = Math.round(Math.random() * 400)
+  if (snakeBlocks.includes(randomNum)) {
+    generateDots
+  }
   let randomDots = spaces[randomNum]
   dotBlocks.push(randomNum)
   if (snakeBlocks[snakeBlocks.length - 1] == dotBlocks[0]) {
@@ -44,8 +47,9 @@ const generateDots = () => {
 }
 
 generateDots()
-// setInterval(generateDots(), 1000)
 
+//e.keyCode learned from https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event
+// and https://www.geeksforgeeks.org/javascript-detecting-the-pressed-arrow-key/
 const arrowPressed = (e) => {
   switch (e.keyCode) {
     case 37:
@@ -171,10 +175,6 @@ const arrowPressed = (e) => {
 
 window.addEventListener('keydown', arrowPressed)
 
-let button = document.body.querySelector('button')
-
-button.addEventListener('click', generateDots)
-
 const snakeEats = () => {
   if (snakeBlocks[snakeBlocks.length] - 1 == dotBlocks[dotBlocks.length] - 1) {
     let gainedMass = snakeBlocks[0] + 1
@@ -194,6 +194,7 @@ const collisions = () => {
       direction == 'bottom')
   ) {
     console.log('game over')
+    location.href = 'gameOver.html'
     if (stopGame) {
       //clear highest timeout learned from https://stackoverflow.com/questions/3847121/how-can-i-disable-all-settimeout-events
       let highestTimeoutId = setTimeout(';')
@@ -217,6 +218,7 @@ const dotSpawning = () => {
 const hitSelf = () => {
   for (let i = 0; i < snakeBlocks.length - 1; i++) {
     if (snakeBlocks[snakeBlocks.length - 1] == snakeBlocks[i]) {
+      location.href = 'gameOver.html'
       let highestTimeoutId = setTimeout(';')
       for (let i = 0; i < highestTimeoutId; i++) {
         clearTimeout(i)
@@ -227,6 +229,20 @@ const hitSelf = () => {
   }
 }
 
+const youWin = () => {
+  if (snakeBlocks.length == 401) {
+    console.log('you win')
+    let highestTimeoutId = setTimeout(';')
+    for (let i = 0; i < highestTimeoutId; i++) {
+      clearTimeout(i)
+    }
+  }
+}
+
 let dotSpawnInterval = setInterval(dotSpawning, dotSpawnTime)
 let hitSelfCheck = setInterval(hitSelf, dotSpawnTime)
+let youWinCheck = setInterval(youWin, intervalTime)
 let interval = setInterval(collisions, intervalTime)
+
+//loss conditions and setIntervals learned/inspired from https://www.youtube.com/watch?v=rui2tRRVtc0&t=352s
+// and https://www.w3schools.com/jsref/met_win_setinterval.asp

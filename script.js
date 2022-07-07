@@ -32,7 +32,7 @@ snake()
 const generateDots = () => {
   let randomNum = Math.round(Math.random() * 400)
   if (snakeBlocks.includes(randomNum)) {
-    generateDots
+    generateDots()
   }
   let randomDots = spaces[randomNum]
   dotBlocks.push(randomNum)

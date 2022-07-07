@@ -216,8 +216,6 @@ const hitSelf = () => {
       for (let i = 0; i < highestTimeoutId; i++) {
         clearTimeout(i)
       }
-    } else {
-      return
     }
   }
 }

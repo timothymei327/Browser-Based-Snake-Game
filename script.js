@@ -237,5 +237,5 @@ let hitSelfCheck = setInterval(hitSelf, dotSpawnTime)
 let youWinCheck = setInterval(youWin, intervalTime)
 let interval = setInterval(collisions, intervalTime)
 
-//loss conditions and setIntervals learned/inspired from https://www.youtube.com/watch?v=rui2tRRVtc0&t=352s
+//loss conditions and setIntervals learned/inspired from https://youtu.be/rui2tRRVtc0?t=553
 // and https://www.w3schools.com/jsref/met_win_setinterval.asp

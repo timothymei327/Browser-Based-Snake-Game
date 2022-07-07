@@ -35,5 +35,5 @@ This is a simple browser-based version of the classic arcade game, Snake. The pl
 - [e.keyCode](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
 - [e.keyCode](https://www.geeksforgeeks.org/javascript-detecting-the-pressed-arrow-key/)
 - [clearTimeout](https://stackoverflow.com/questions/3847121/how-can-i-disable-all-settimeout-events)
-- [lossConditions/setIntervals](https://www.youtube.com/watch?v=rui2tRRVtc0&t=352s)
+- [lossConditions/setIntervals](https://youtu.be/rui2tRRVtc0?t=553)
 - [setIntervals](https://www.w3schools.com/jsref/met_win_setinterval.asp)

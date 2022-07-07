@@ -1,11 +1,14 @@
 let gameBoard = document.getElementById('container')
+let allDivs = document.querySelectorAll('div')
 const boardWidth = 20
 const boardHeight = 20
 let snakeBlocks = [183, 184, 185]
-let speed = 800
+let dotBlocks = []
+let speed = 500
 let direction = null
 let previousInput = ['gamestart']
-
+let intervalTime = 400
+let dotSpawnTime = 1
 
 for (i = 0; i < 400; i++) {
   let spaces = document.createElement('div')
@@ -25,21 +28,22 @@ const snake = () => {
 
 snake()
 
-const randomDots = () => {
-  while (document.body.querySelector('#dot') == null) {
-    let randomNum = Math.round(Math.random() * 400)
-    let randomDots = spaces[randomNum]
-    if (randomDots.getAttribute('id') == 'snake') {
-      document.body.querySelector('#dot') = null
-    } else {
-      randomDots.setAttribute('id', 'dot')
-      randomDots.style.backgroundColor = '#aa1408'
-      console.log(randomDots)
-    }
+const generateDots = () => {
+  let randomNum = Math.round(Math.random() * 400)
+  let randomDots = spaces[randomNum]
+  dotBlocks.push(randomNum)
+  if (randomDots.getAttribute('id') == 'snake') {
+    generateDots()
+  } else {
+    randomDots.setAttribute('id', 'dot')
+    randomDots.style.backgroundColor = '#aa1408'
+    console.log(randomDots)
+    console.log(dotBlocks)
   }
 }
 
-randomDots()
+generateDots()
+// setInterval(generateDots(), 1000)
 
 const arrowPressed = (e) => {
   switch (e.keyCode) {
@@ -125,7 +129,8 @@ const arrowPressed = (e) => {
         }
         if (
           previousInput[previousInput.length - 1] !== 'right' &&
-          previousInput[previousInput.length - 1] !== 'left'
+          previousInput[previousInput.length - 1] !== 'left' &&
+          previousInput[previousInput.length - 1] !== 'gameover'
         ) {
           rightMovement()
         }
@@ -164,3 +169,47 @@ const arrowPressed = (e) => {
 }
 
 window.addEventListener('keydown', arrowPressed)
+
+let button = document.body.querySelector('button')
+
+button.addEventListener('click', generateDots)
+
+const snakeEats = () => {
+  if (snakeBlocks[snakeBlocks.length] - 1 == dotBlocks[dotBlocks.length] - 1) {
+    let gainedMass = snakeBlocks[0] + 1
+    snakeBlocks.unshift(gainedMass)
+  }
+}
+
+const collisions = () => {
+  if (
+    (snakeBlocks[snakeBlocks.length - 1] % boardWidth == boardWidth - 1 &&
+      direction == 'right') ||
+    (snakeBlocks[snakeBlocks.length - 1] % boardWidth == 0 &&
+      direction == 'left') ||
+    (snakeBlocks[snakeBlocks.length - 1] - boardWidth < 0 &&
+      direction == 'top') ||
+    (snakeBlocks[snakeBlocks.length - 1] + boardWidth >= 400 &&
+      direction == 'bottom')
+  ) {
+    console.log('game over')
+
+    let highestTimeoutId = setTimeout(';')
+    for (let i = 0; i < highestTimeoutId; i++) {
+      clearTimeout(i)
+    }
+  } else {
+    return
+  }
+}
+
+const dotSpawning = () => {
+  if (snakeBlocks[snakeBlocks.length - 1] == dotBlocks[0]) {
+    snakeBlocks.unshift(snakeBlocks[0] + 1)
+    dotBlocks.shift()
+    generateDots()
+  }
+}
+
+let dotSpawnInterval = setInterval(dotSpawning, dotSpawnTime)
+let interval = setInterval(collisions, intervalTime)

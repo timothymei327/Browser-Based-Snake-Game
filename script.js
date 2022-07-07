@@ -41,8 +41,6 @@ const generateDots = () => {
   } else {
     randomDots.setAttribute('id', 'dot')
     randomDots.style.backgroundColor = '#aa1408'
-    console.log(randomDots)
-    console.log(dotBlocks)
   }
 }
 
@@ -56,7 +54,6 @@ const arrowPressed = (e) => {
       if (direction == 'right') {
         return false
       } else {
-        console.log('left arrowkey pressed')
         direction = 'left'
         const leftMovement = () => {
           if (direction == 'left') {
@@ -86,7 +83,6 @@ const arrowPressed = (e) => {
       if (direction == 'bottom') {
         return false
       } else {
-        console.log('top arrowkey pressed')
         direction = 'top'
         const topMovement = () => {
           if (direction == 'top') {
@@ -115,7 +111,6 @@ const arrowPressed = (e) => {
       if (direction == 'left') {
         return false
       } else {
-        console.log('right arrowkey pressed')
         direction = 'right'
         const rightMovement = () => {
           if (direction == 'right') {
@@ -145,7 +140,6 @@ const arrowPressed = (e) => {
       if (direction == 'top') {
         return false
       } else {
-        console.log('bottom arrowkey pressed')
         direction = 'bottom'
         const bottomMovement = () => {
           if (direction == 'bottom') {
@@ -193,7 +187,6 @@ const collisions = () => {
     (snakeBlocks[snakeBlocks.length - 1] + boardWidth >= 400 &&
       direction == 'bottom')
   ) {
-    console.log('game over')
     location.href = 'gameOver.html'
     if (stopGame) {
       //clear highest timeout learned from https://stackoverflow.com/questions/3847121/how-can-i-disable-all-settimeout-events
@@ -231,7 +224,7 @@ const hitSelf = () => {
 
 const youWin = () => {
   if (snakeBlocks.length == 401) {
-    console.log('you win')
+    location.href = 'gameOver.html'
     let highestTimeoutId = setTimeout(';')
     for (let i = 0; i < highestTimeoutId; i++) {
       clearTimeout(i)

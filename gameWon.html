@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,800&display=swap');
+body {
+  display: flex;
+  text-align: center;
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/288.jpg");
+  color: #f46d10;
+  font-size: 100px;
+  justify-content: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+section{
+  border: 3px solid black;
+  border-radius: 5%;
+  background-color: #465947;
+  padding: 2%;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#button {
+  display: block;
+  border: 2px solid black;
+  border-radius: 5%;
+  padding: 10px;
+  font-size: 30px;
+  user-select: none;
+  margin-bottom: 10%;
+  /* user-select learned from https://developer.mozilla.org/en-US/docs/Web/CSS/user-select*/
+}
+  </style>
+</head>
+<body>
+  <section>
+    <h1>YOU WIN!</h1>
+    <div id="container">
+      <div id="button">Click to Play Again!<div>
+      </div>
+    </section>
+</body>
+<script>
+  document.querySelector('div').addEventListener('click', () =>{
+    location.href = 'index.html'
+//location.href learned from https://www.codegrepper.com/code-examples/html/how+to+open+a+new+html+page+on+button+click+in+javascript
+  } )
+</script>
+</html>

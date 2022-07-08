@@ -28,7 +28,7 @@ This is a simple browser-based version of the classic arcade game, Snake. The pl
 
 - [SnakeImg](https://im.indiatimes.in/media/content/2018/Aug/snake_game_1533210447.jpg)
 - [GoogleFonts](https://fonts.google.com/specimen/Fira+Sans)
-- [GameBackground](https://wallpapershome.com/images/pages/pic_h/288.jpg)
+- [GameBackground](https://static.wikia.nocookie.net/aqwikia/images/a/af/Fire_Cobra_Attack_2.gif/revision/latest?cb=20130612024223)
 
 #### _Functional Aspects_
 

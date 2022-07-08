@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,800&display=swap');
 body {
-background-image: url("https://wallpapershome.com/images/pages/pic_h/288.jpg");
+background-color: #5a5a39;
+background-image: url("../../../Desktop/firecobraimg.webp");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: top;
 color: #ffe824;
 justify-content: center;
 overflow: hidden;

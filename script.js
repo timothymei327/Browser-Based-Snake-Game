@@ -4,10 +4,10 @@ const boardWidth = 20
 const boardHeight = 20
 let snakeBlocks = [183, 184, 185]
 let dotBlocks = []
-let speed = 600
+let speed = 500
 let direction = null
 let previousInput = ['gamestart']
-let intervalTime = 500
+let intervalTime = 390
 let dotSpawnTime = 1
 let numsArr = []
 

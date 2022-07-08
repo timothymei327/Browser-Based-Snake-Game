@@ -7,7 +7,7 @@ let dotBlocks = []
 let speed = 600
 let direction = null
 let previousInput = ['gamestart']
-let intervalTime = 300
+let intervalTime = 500
 let dotSpawnTime = 1
 let numsArr = []
 
